@@ -13,7 +13,7 @@ Bitsafe's guide to onboard Canton into attestor network.
 
 ### Canton 3.3.0
 
-*Canton act as a client which helps to communicate with the canton node.*
+*Canton installation helps to communicate with the canton node.*
 
 Run `canton --version` and verify you are running 3.3.0. The output should look similar:
 
