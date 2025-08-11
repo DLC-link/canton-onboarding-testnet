@@ -37,4 +37,11 @@ if [ -z "$participant_pod_name" ]; then
 fi
 participant_ns=$(kubectl get pods --all-namespaces | grep participant- | awk '{print $1}' | head -n 1)
 echo "Setting up port forwarding to $participant_pod_name..."
-kubectl port-forward -n "$participant_ns" "$participant_pod_name" 5002:5002
+kubectl port-forward -n "$participant_ns" "$participant_pod_name" 5002:5002 &>/dev/null &
+kubectl port-forward -n "$participant_ns" "$participant_pod_name" 5001:5001 &>/dev/null &
+
+echo "Port forwarding established. Press Ctrl+C to exit..."
+
+while true; do
+  sleep 1
+done
