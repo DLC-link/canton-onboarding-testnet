@@ -3,7 +3,7 @@ def main(): Unit = {
     case Some(value) => value
     case None =>
       System.err.println("Error: environment variable PARTY_NAME is missing!")
-      sys.exit(1)  // stop execution with error code
+      sys.exit(1)
   }
 
   val userName = sys.env.get("USER_NAME") match {
@@ -14,6 +14,7 @@ def main(): Unit = {
   }
 
   val existingParty = participant.parties.list(name)
+  println("\n-- Party:")
   existingParty.foreach { result =>
     println(s"Party: ${result.party}")
     println("Participants:")
@@ -26,8 +27,16 @@ def main(): Unit = {
     }
   }
 
+  println("\n-- User:")
   val user = participant.ledger_api.users.get(userName)
-  println(user.party)
+  println(s"""User:
+    |  ID: ${user.id}
+    |  Primary Party: ${user.primaryParty.getOrElse("None")}
+    |  Deactivated: ${user.isDeactivated}
+    |  Annotations:
+    |${user.annotations.map { case (k,v) => s"    $k -> $v" }.mkString("\n")}
+    |  Identity Provider ID: ${user.identityProviderId}
+  """.stripMargin)
 }
 
 main()

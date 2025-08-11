@@ -31,8 +31,6 @@ def main(): Unit = {
     participantAdmin = false,
     annotations = Map("description" -> "Attestor Party")
   )
-
-  println(user)
 }
 
 main()
