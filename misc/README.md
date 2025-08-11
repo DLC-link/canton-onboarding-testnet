@@ -1,5 +1,9 @@
 # Onboarding general information
 
+## Prerequisite
+
+Please check whether you have everything set up properly [here](../README.md).
+
 ## Access the remote node
 
 To successfully run the provided scripts, the remote service port must be accessible from your local machine. This means the remote port needs to be forwarded or exposed to your localhost.
