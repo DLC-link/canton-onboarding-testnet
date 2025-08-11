@@ -28,7 +28,13 @@ kubectl port-forward "{participant_pod_name}" 5002:5002
 
 So the port is not exposed to your local environment.
 
+#### Port-forward script
+
 You can find an established script for that [here](./scripts/kubectl-expose.sh).
+
+- This script assumes you have only one participant node in the cluster.
+- After this, you will probably need to open another terminal.
+- You can stop the port-forward by pressing Ctrl+C.
 
 ### Docker-native
 
