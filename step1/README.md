@@ -32,6 +32,15 @@ canton run 00_ValidateDars.sc -c ../misc/connect.conf
 canton run 01_GenerateKeys.sc -c ../misc/connect.conf
 ```
 
-6. Output
+6. Validate key generation
+
+```bash
+canton run 01_ValidateKeys.sc -c ../misc/connect.conf
+```
+
+- If you see `No cbtc-network-XXX keys found` it means that the keys are not set up properly.
+- If you see `ATTENTION: Multiple keys detected! ...`, please contact the Bitsafe team.
+
+7. Output
 
 There is an output directory with two files (`attestor-public-keys.bin` and `participant-id.bin`), provide that to the Bitsafe team.
